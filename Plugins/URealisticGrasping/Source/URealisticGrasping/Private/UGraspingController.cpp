@@ -37,7 +37,7 @@ void UGraspingController::UpdateGrasp(AGraspingHand* Hand, const float Input, bo
 	Spring = 9000 * (1 + Input);
 
 	//checks which hand to move
-	if (bIsRightHand) {
+	if (bIsRightHand && GraspingDataR.GetNumberOfEpisodes() > 0) {
 		if (Input > 0.0001)
 		{
 			bIsGraspingR = true;
@@ -57,10 +57,10 @@ void UGraspingController::UpdateGrasp(AGraspingHand* Hand, const float Input, bo
 			}
 		}
 	}
-	else {
+	else if(GraspingDataL.GetNumberOfEpisodes() > 0){
 		if (Input > 0.0001)
 		{
-			bIsGraspingR = true;
+			bIsGraspingL = true;
 
 			// Manipulate Orientation Drives
 			FFingersData TargetOrientation;

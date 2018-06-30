@@ -297,15 +297,6 @@ public:
 		return &BoneFingerNames;
 	}
 
-	/*
-	Function that returns the number of episodes
-	@return number of episodes
-	*/
-	int getNumberOfEpisodes() 
-	{
-		return PositionEpisode.Num();
-	}
-
 	//The name for this Animation
 	UPROPERTY()
 		FString AnimationName;
